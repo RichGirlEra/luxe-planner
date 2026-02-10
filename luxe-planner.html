@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxe Planner - Digital Marketing Planners for Entrepreneurs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Lato:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --gold: #C9A962;
+      --charcoal: #2D2D2D;
+      --blush-light: #FDF5F3;
+      --blush: #F8E8E4;
+    }
+    
+    .font-serif-display {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .font-sans-modern {
+      font-family: 'Lato', sans-serif;
+    }
+    
+    .gradient-blush {
+      background: linear-gradient(135deg, #FDF5F3 0%, #F8E8E4 50%, #FBF0ED 100%);
+    }
+    
+    .gradient-gold {
+      background: linear-gradient(135deg, #E8D5A3 0%, #C9A962 50%, #A68B4B 100%);
+    }
+    
+    .gold-border {
+      border: 1px solid #C9A962;
+    }
+    
+    .gold-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #C9A962, transparent);
+    }
+    
+    .card-luxury {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(201, 169, 98, 0.2);
+      box-shadow: 0 4px 20px rgba(201, 169, 98, 0.1);
+    }
+    
+    .page { display: none; }
+    .page.active { display: block; }
+    
+    .tier-card {
+      transition: all 0.3s ease;
+    }
+    
+    .tier-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(201, 169, 98, 0.2);
+    }
+    
+    .tier-card.featured {
+      border: 2px solid var(--gold);
+      transform: scale(1.05);
+    }
+    
+    .checkmark {
+      color: var(--gold);
+      font-weight: bold;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-sans-modern gradient-blush text-charcoal overflow-auto">
+  <div class="w-full min-h-full"><!-- Landing Page -->
+   <div id="landingPage" class="page active"><!-- Navigation -->
+    <div class="w-full bg-white/50 backdrop-blur-sm border-b gold-border">
+     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2"><span class="text-3xl">💎</span>
+       <h1 class="font-serif-display text-2xl font-bold">LUXE PLANNER</h1>
+      </div><button onclick="showPage('authPage')" class="px-6 py-2 rounded-lg gradient-gold text-white font-medium">Sign In / Sign Up</button>
+     </div>
+    </div><!-- Hero Section -->
+    <div class="w-full">
+     <div class="max-w-7xl mx-auto px-6 py-16 text-center">
+      <h2 class="font-serif-display text-6xl font-bold mb-4">Your Business Deserves a Luxe Plan</h2>
+      <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">Beautiful, customizable digital planners designed for entrepreneurs, coaches, and creators. Plan smarter. Grow faster. Look amazing doing it.</p><button onclick="showPage('authPage')" class="px-8 py-4 rounded-lg gradient-gold text-white font-medium text-lg">Start Your Free Demo</button>
+     </div>
+    </div><!-- Features Section -->
+    <div class="max-w-7xl mx-auto px-6 py-12">
+     <h3 class="font-serif-display text-4xl font-bold text-center mb-12">What You Get</h3>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card-luxury rounded-2xl p-6 text-center"><span class="text-4xl mb-4 block">📊</span>
+       <h4 class="font-serif-display text-xl font-semibold mb-2">Monthly Planning</h4>
+       <p class="text-gray-600">Goals, KPIs, content calendar, and win tracking all in one beautiful dashboard.</p>
+      </div>
+      <div class="card-luxury rounded-2xl p-6 text-center"><span class="text-4xl mb-4 block">🎨</span>
+       <h4 class="font-serif-display text-xl font-semibold mb-2">Fully Customizable</h4>
+       <p class="text-gray-600">Change colors, fonts, and text to match your brand perfectly. No design skills needed.</p>
+      </div>
+      <div class="card-luxury rounded-2xl p-6 text-center"><span class="text-4xl mb-4 block">💾</span>
+       <h4 class="font-serif-display text-xl font-semibold mb-2">Your Data, Always Saved</h4>
+       <p class="text-gray-600">Log in anytime to access your plans. Your data is always there, always secure.</p>
+      </div>
+     </div>
+    </div><!-- Pricing Section -->
+    <div class="max-w-7xl mx-auto px-6 py-16">
+     <h3 class="font-serif-display text-4xl font-bold text-center mb-4">Simple, Transparent Pricing</h3>
+     <p class="text-center text-gray-600 mb-12">Try free. Upgrade anytime. Cancel anytime.</p>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8"><!-- Free Tier -->
+      <div class="card-luxury tier-card rounded-2xl p-8">
+       <h4 class="font-serif-display text-2xl font-semibold mb-2">Free</h4>
+       <p class="text-gray-600 mb-6">Perfect for testing</p>
+       <div class="text-4xl font-bold mb-6" style="color: var(--gold);">
+        $0
+       </div><button onclick="showPage('authPage')" class="w-full px-4 py-3 rounded-lg border-2 gold-border font-medium mb-6 hover:bg-gray-50">Try Free Demo</button>
+       <div class="space-y-3 text-sm">
+        <div>
+         <span class="checkmark">✓</span> 1 Planner Demo (Read-Only)
+        </div>
+        <div>
+         <span class="checkmark">✓</span> See All Features
+        </div>
+        <div>
+         <span class="checkmark">✓</span> No Credit Card
+        </div>
+        <div class="text-gray-400">
+         ✗ Can't Customize
+        </div>
+        <div class="text-gray-400">
+         ✗ Can't Save Data
+        </div>
+       </div>
+      </div><!-- Pro Tier (Featured) -->
+      <div class="card-luxury tier-card featured rounded-2xl p-8 relative">
+       <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-gold text-white px-4 py-1 rounded-full text-sm font-semibold">
+        Most Popular
+       </div>
+       <h4 class="font-serif-display text-2xl font-semibold mb-2">Pro</h4>
+       <p class="text-gray-600 mb-6">For growing entrepreneurs</p>
+       <div>
+        <div class="text-4xl font-bold mb-2" style="color: var(--gold);">
+         $10.99
+        </div>
+        <p class="text-xs text-gray-500 mb-6">per month • or $105.50/year (Save 20%)</p>
+       </div><button onclick="upgradeToPro()" class="w-full px-4 py-3 rounded-lg gradient-gold text-white font-medium mb-6 hover:opacity-90">Upgrade to Pro</button>
+       <div class="space-y-3 text-sm">
+        <div>
+         <span class="checkmark">✓</span> All 4 Planners
+        </div>
+        <div>
+         <span class="checkmark">✓</span> Full Customization
+        </div>
+        <div>
+         <span class="checkmark">✓</span> Save Your Data
+        </div>
+        <div>
+         <span class="checkmark">✓</span> Colors &amp; Fonts
+        </div>
+        <div>
+         <span class="checkmark">✓</span> Text Editing
+        </div>
+        <div class="text-gray-400">
+         ✗ Custom Branding
+        </div>
+       </div>
+      </div><!-- Premium Tier -->
+      <div class="card-luxury tier-card rounded-2xl p-8">
+       <h4 class="font-serif-display text-2xl font-semibold mb-2">Premium</h4>
+       <p class="text-gray-600 mb-6">For serious creators</p>
+       <div>
+        <div class="text-4xl font-bold mb-2" style="color: var(--gold);">
+         $20.99
+        </div>
+        <p class="text-xs text-gray-500 mb-6">per month • or $205.50/year (Save 18%)</p>
+       </div><button onclick="upgradeToPremium()" class="w-full px-4 py-3 rounded-lg border-2 gold-border font-medium mb-6 hover:bg-gray-50">Upgrade to Premium</button>
+       <div class="space-y-3 text-sm">
+        <div>
+         <span class="checkmark">✓</span> Everything in Pro
+        </div>
+        <div>
+         <span class="checkmark">✓</span> Custom Logo Upload
+        </div>
+        <div>
+         <span class="checkmark">✓</span> Brand Color Set
+        </div>
+        <div>
+         <span class="checkmark">✓</span> Priority Support
+        </div>
+        <div>
+         <span class="checkmark">✓</span> New Features First
+        </div>
+        <div>
+         <span class="checkmark">✓</span> Monthly Updates
+        </div>
+       </div>
+      </div>
+     </div>
+    </div><!-- Planners Included Section -->
+    <div class="max-w-7xl mx-auto px-6 py-16 bg-white/30 rounded-2xl">
+     <h3 class="font-serif-display text-3xl font-bold text-center mb-8">4 Beautiful Planners Included (Pro &amp; Premium)</h3>
+     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="text-center"><span class="text-5xl mb-3 block">💄</span>
+       <h4 class="font-serif-display text-lg font-semibold">Beauty &amp; Wellness</h4>
+       <p class="text-sm text-gray-600 mt-2">For beauty brands, salons &amp; wellness coaches</p>
+      </div>
+      <div class="text-center"><span class="text-5xl mb-3 block">💪</span>
+       <h4 class="font-serif-display text-lg font-semibold">Fitness &amp; Health</h4>
+       <p class="text-sm text-gray-600 mt-2">For trainers, coaches &amp; fitness creators</p>
+      </div>
+      <div class="text-center"><span class="text-5xl mb-3 block">🎓</span>
+       <h4 class="font-serif-display text-lg font-semibold">Coaching &amp; Courses</h4>
+       <p class="text-sm text-gray-600 mt-2">For coaches, consultants &amp; educators</p>
+      </div>
+      <div class="text-center"><span class="text-5xl mb-3 block">🛍️</span>
+       <h4 class="font-serif-display text-lg font-semibold">E-commerce &amp; Retail</h4>
+       <p class="text-sm text-gray-600 mt-2">For online stores and small businesses</p>
+      </div>
+     </div>
+    </div><!-- Footer -->
+    <div class="w-full bg-white/50 border-t gold-border mt-16">
+     <div class="max-w-7xl mx-auto px-6 py-8 text-center text-gray-600">
+      <p>© 2024 Luxe Planner. Built for entrepreneurs who refuse to compromise.</p>
+     </div>
+    </div>
+   </div><!-- Auth Page (Login/Signup) -->
+   <div id="authPage" class="page">
+    <div class="min-h-full flex items-center justify-center px-4">
+     <div class="w-full max-w-md">
+      <div class="card-luxury rounded-2xl p-8"><button onclick="showPage('landingPage')" class="text-gray-500 hover:text-charcoal mb-4">← Back</button>
+       <h2 class="font-serif-display text-3xl font-bold mb-2">Welcome to Luxe Planner</h2>
+       <p class="text-gray-600 mb-8">Sign in to your account or create a new one</p><!-- Tab Buttons -->
+       <div class="flex gap-4 mb-8"><button id="signInTab" onclick="switchAuthTab('signIn')" class="flex-1 py-2 px-4 rounded-lg font-medium" style="background: rgba(201, 169, 98, 0.2); color: var(--gold);">Sign In</button> <button id="signUpTab" onclick="switchAuthTab('signUp')" class="flex-1 py-2 px-4 rounded-lg font-medium text-gray-600">Create Account</button>
+       </div><!-- Sign In Form -->
+       <form id="signInForm" onsubmit="handleSignIn(event)" class="space-y-4">
+        <div><label class="block text-sm font-medium mb-2">Email</label> <input type="email" id="signInEmail" required placeholder="your@email.com" class="w-full px-4 py-2 border rounded-lg focus:outline-none" style="border-color: var(--gold);">
+        </div>
+        <div><label class="block text-sm font-medium mb-2">Password</label> <input type="password" id="signInPassword" required placeholder="••••••••" class="w-full px-4 py-2 border rounded-lg focus:outline-none" style="border-color: var(--gold);">
+        </div><button type="submit" class="w-full px-4 py-3 rounded-lg gradient-gold text-white font-medium">Sign In</button>
+        <div id="signInError" class="text-red-600 text-sm hidden"></div>
+       </form><!-- Sign Up Form -->
+       <form id="signUpForm" onsubmit="handleSignUp(event)" class="space-y-4 hidden">
+        <div><label class="block text-sm font-medium mb-2">Full Name</label> <input type="text" id="signUpName" required placeholder="Your Name" class="w-full px-4 py-2 border rounded-lg focus:outline-none" style="border-color: var(--gold);">
+        </div>
+        <div><label class="block text-sm font-medium mb-2">Email</label> <input type="email" id="signUpEmail" required placeholder="your@email.com" class="w-full px-4 py-2 border rounded-lg focus:outline-none" style="border-color: var(--gold);">
+        </div>
+        <div><label class="block text-sm font-medium mb-2">Password</label> <input type="password" id="signUpPassword" required placeholder="••••••••" class="w-full px-4 py-2 border rounded-lg focus:outline-none" style="border-color: var(--gold);">
+        </div>
+        <div><label class="block text-sm font-medium mb-2">Confirm Password</label> <input type="password" id="signUpConfirm" required placeholder="••••••••" class="w-full px-4 py-2 border rounded-lg focus:outline-none" style="border-color: var(--gold);">
+        </div><button type="submit" class="w-full px-4 py-3 rounded-lg gradient-gold text-white font-medium">Create Account</button>
+        <div id="signUpError" class="text-red-600 text-sm hidden"></div>
+       </form>
+       <p class="text-center text-sm text-gray-600 mt-6">By signing up, you agree to our Terms of Service and Privacy Policy</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- Dashboard Page -->
+   <div id="dashboardPage" class="page">
+    <div class="w-full bg-white/50 backdrop-blur-sm border-b gold-border">
+     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2"><span class="text-3xl">💎</span>
+       <h1 class="font-serif-display text-2xl font-bold">LUXE PLANNER</h1>
+      </div>
+      <div class="flex items-center gap-4"><span id="userEmail" class="text-sm text-gray-600"></span>
+       <div id="tierBadge" class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(201, 169, 98, 0.2); color: var(--gold);">
+        Free
+       </div><button onclick="handleLogout()" class="px-4 py-2 rounded-lg border gold-border font-medium hover:bg-gray-50">Logout</button>
+      </div>
+     </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 py-12">
+     <h2 class="font-serif-display text-4xl font-bold mb-2">Welcome Back!</h2>
+     <p class="text-gray-600 mb-12">Choose a planner to get started</p><!-- Planners Grid -->
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="plannersGrid"><!-- Planners will be loaded here -->
+     </div><!-- Upgrade Section (if Free) -->
+     <div id="upgradeSection" class="card-luxury rounded-2xl p-8 mt-12 text-center hidden">
+      <h3 class="font-serif-display text-2xl font-bold mb-4">Ready to Customize &amp; Save Your Plans?</h3>
+      <p class="text-gray-600 mb-6">Upgrade to Pro to unlock all 4 planners, customization, and data persistence.</p>
+      <div class="flex gap-4 justify-center"><button onclick="upgradeToPro()" class="px-6 py-3 rounded-lg gradient-gold text-white font-medium">Upgrade to Pro - $10.99/mo</button> <button onclick="upgradeToPremium()" class="px-6 py-3 rounded-lg border-2 gold-border font-medium hover:bg-gray-50">Upgrade to Premium - $20.99/mo</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+    // Simple auth system (in production, use proper backend)
+    let currentUser = null;
+    let userTier = 'free'; // 'free', 'pro', 'premium'
+
+    // Load user from localStorage if exists
+    function loadUser() {
+      const saved = localStorage.getItem('luxeUser');
+      if (saved) {
+        currentUser = JSON.parse(saved);
+        userTier = currentUser.tier || 'free';
+      }
+    }
+
+    // Show specific page
+    function showPage(pageName) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageName).classList.add('active');
+      
+      if (pageName === 'dashboardPage') {
+        loadDashboard();
+      }
+    }
+
+    // Switch auth tabs
+    function switchAuthTab(tab) {
+      const signInForm = document.getElementById('signInForm');
+      const signUpForm = document.getElementById('signUpForm');
+      const signInTab = document.getElementById('signInTab');
+      const signUpTab = document.getElementById('signUpTab');
+
+      if (tab === 'signIn') {
+        signInForm.classList.remove('hidden');
+        signUpForm.classList.add('hidden');
+        signInTab.style.background = 'rgba(201, 169, 98, 0.2)';
+        signInTab.style.color = 'var(--gold)';
+        signUpTab.style.background = 'transparent';
+        signUpTab.style.color = '#666';
+      } else {
+        signInForm.classList.add('hidden');
+        signUpForm.classList.remove('hidden');
+        signUpTab.style.background = 'rgba(201, 169, 98, 0.2)';
+        signUpTab.style.color = 'var(--gold)';
+        signInTab.style.background = 'transparent';
+        signInTab.style.color = '#666';
+      }
+    }
+
+    // Handle Sign In
+    function handleSignIn(event) {
+      event.preventDefault();
+      const email = document.getElementById('signInEmail').value;
+      const password = document.getElementById('signInPassword').value;
+      const errorEl = document.getElementById('signInError');
+
+      const users = JSON.parse(localStorage.getItem('luxeUsers') || '{}');
+      
+      if (!users[email]) {
+        errorEl.textContent = 'Email not found';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      if (users[email].password !== password) {
+        errorEl.textContent = 'Incorrect password';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      currentUser = users[email];
+      userTier = currentUser.tier || 'free';
+      localStorage.setItem('luxeUser', JSON.stringify(currentUser));
+      
+      showPage('dashboardPage');
+      document.getElementById('signInEmail').value = '';
+      document.getElementById('signInPassword').value = '';
+      errorEl.classList.add('hidden');
+    }
+
+    // Handle Sign Up
+    function handleSignUp(event) {
+      event.preventDefault();
+      const name = document.getElementById('signUpName').value;
+      const email = document.getElementById('signUpEmail').value;
+      const password = document.getElementById('signUpPassword').value;
+      const confirm = document.getElementById('signUpConfirm').value;
+      const errorEl = document.getElementById('signUpError');
+
+      if (password !== confirm) {
+        errorEl.textContent = 'Passwords do not match';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem('luxeUsers') || '{}');
+      
+      if (users[email]) {
+        errorEl.textContent = 'Email already registered';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      currentUser = {
+        name,
+        email,
+        password,
+        tier: 'free',
+        createdAt: new Date().toISOString(),
+        plannerData: {}
+      };
+
+      users[email] = currentUser;
+      localStorage.setItem('luxeUsers', JSON.stringify(users));
+      localStorage.setItem('luxeUser', JSON.stringify(currentUser));
+
+      userTier = 'free';
+      showPage('dashboardPage');
+      document.getElementById('signUpName').value = '';
+      document.getElementById('signUpEmail').value = '';
+      document.getElementById('signUpPassword').value = '';
+      document.getElementById('signUpConfirm').value = '';
+      errorEl.classList.add('hidden');
+    }
+
+    // Load Dashboard
+    function loadDashboard() {
+      if (!currentUser) {
+        showPage('landingPage');
+        return;
+      }
+
+      document.getElementById('userEmail').textContent = currentUser.email;
+      document.getElementById('tierBadge').textContent = userTier.toUpperCase();
+      
+      const plannersGrid = document.getElementById('plannersGrid');
+      const upgradeSection = document.getElementById('upgradeSection');
+      plannersGrid.innerHTML = '';
+
+      const planners = [
+        { id: 'luxury-marketing', name: 'Luxury Marketing', emoji: '💼', description: 'Digital marketing & business planning', tier: 'free' },
+        { id: 'beauty-wellness', name: 'Beauty & Wellness', emoji: '💄', description: 'For beauty brands and wellness coaches', tier: 'pro' },
+        { id: 'fitness-health', name: 'Fitness & Health', emoji: '💪', description: 'For trainers and fitness creators', tier: 'pro' },
+        { id: 'coaching-courses', name: 'Coaching & Courses', emoji: '🎓', description: 'For coaches and educators', tier: 'pro' },
+        { id: 'ecommerce-retail', name: 'E-commerce & Retail', emoji: '🛍️', description: 'For online stores and businesses', tier: 'pro' }
+      ];
+
+      planners.forEach(planner => {
+        const canAccess = planner.tier === 'free' || userTier === 'pro' || userTier === 'premium';
+        const locked = !canAccess;
+
+        const card = document.createElement('div');
+        card.className = 'card-luxury rounded-2xl p-8 relative ' + (locked ? 'opacity-60' : '');
+        card.innerHTML = `
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <span class="text-5xl block mb-3">${planner.emoji}</span>
+              <h3 class="font-serif-display text-2xl font-semibold">${planner.name}</h3>
+              <p class="text-gray-600 text-sm mt-1">${planner.description}</p>
+            </div>
+            ${locked ? '<span style="background: rgba(201, 169, 98, 0.2); color: var(--gold);" class="px-3 py-1 rounded-full text-xs font-semibold">Pro+</span>' : ''}
+          </div>
+          <button onclick="openPlanner('${planner.id}')" class="w-full px-4 py-3 rounded-lg ${locked ? 'border-2 gold-border text-gray-600' : 'gradient-gold text-white'} font-medium mt-6">
+            ${locked ? 'Upgrade to Access' : 'Open Planner'}
+          </button>
+        `;
+        plannersGrid.appendChild(card);
+
+        if (locked) {
+          card.style.cursor = 'pointer';
+          card.querySelector('button').onclick = () => upgradeToPro();
+        }
+      });
+
+      // Show upgrade section if free
+      if (userTier === 'free') {
+        upgradeSection.classList.remove('hidden');
+      } else {
+        upgradeSection.classList.add('hidden');
+      }
+    }
+
+    // Open Planner
+    function openPlanner(plannerId) {
+      // In production, redirect to planner app
+      window.location.href = `/planner.html?id=${plannerId}&user=${encodeURIComponent(currentUser.email)}`;
+      // For now, show alert
+      alert(`Opening ${plannerId} planner. In production, this would open the full editable planner.`);
+    }
+
+    // Upgrade functions (redirect to Stripe in production)
+    function upgradeToPro() {
+      if (!currentUser) {
+        showPage('authPage');
+        return;
+      }
+      // Replace with your actual Stripe link
+      const stripeLink = 'https://buy.stripe.com/test_pro_plan'; // You'll get this from Stripe
+      window.open(stripeLink, '_blank');
+    }
+
+    function upgradeToPremium() {
+      if (!currentUser) {
+        showPage('authPage');
+        return;
+      }
+      // Replace with your actual Stripe link
+      const stripeLink = 'https://buy.stripe.com/test_premium_plan'; // You'll get this from Stripe
+      window.open(stripeLink, '_blank');
+    }
+
+    // Logout
+    function handleLogout() {
+      currentUser = null;
+      userTier = 'free';
+      localStorage.removeItem('luxeUser');
+      showPage('landingPage');
+    }
+
+    // Initialize on load
+    loadUser();
+    if (currentUser) {
+      showPage('dashboardPage');
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cbe24d92623711a',t:'MTc3MDc1MzExNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
